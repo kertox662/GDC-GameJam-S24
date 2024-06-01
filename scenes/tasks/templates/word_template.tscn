@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3se0nxn8w0j0"]
+
+[ext_resource type="PackedScene" uid="uid://igju0yrtjp3" path="res://scenes/tasks/key_sprite_std.tscn" id="1_1632l"]
+
+[node name="SwipeTemplate" type="Node2D"]
+
+[node name="KeySprite" parent="." instance=ExtResource("1_1632l")]
+
+[node name="KeySprite2" parent="." instance=ExtResource("1_1632l")]
+position = Vector2(128, 0)
+
+[node name="KeySprite3" parent="." instance=ExtResource("1_1632l")]
+position = Vector2(256, 0)
+
+[node name="KeySprite4" parent="." instance=ExtResource("1_1632l")]
+position = Vector2(384, 0)

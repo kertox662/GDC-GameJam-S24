@@ -22,12 +22,26 @@ func set_selected(index: int):
 	
 	# Check that we need to wait to release and we haven't already
 	# waited to select it.
+	if !_is_selected(sprite):
+		sprites_to_select.append(sprite)
 	if !sprite.is_pressed():
-		if sprite not in sprites_to_select:
-			sprites_to_select.append(sprite)
-	else:
+		set_key_up(sprite)
+
+func unset_selected(index: int):
+	var sprite = sprites[index]
+	if _is_selected(sprite):
+		sprites_to_select.erase(sprite)
+		if !sprite.is_pressed():
+			set_key_up(sprite)
+
+func set_key_up(sprite):
+	if _is_selected(sprite):
 		sprite.set_selected()
-	
+	else:
+		sprite.set_normal()
+
+func _is_selected(sprite):
+	return sprite in sprites_to_select
 
 func key_event(event: InputEventKey):
 	if event.pressed:
@@ -45,8 +59,4 @@ func _key_released(event: InputEventKey):
 	if !sprite_key_map.has(key):
 		return
 	var sprite = sprite_key_map[key]
-	if sprite in sprites_to_select:
-		sprite.set_selected()
-		sprites_to_select.erase(sprite)
-	else:
-		sprite.set_normal()
+	set_key_up(sprite)
