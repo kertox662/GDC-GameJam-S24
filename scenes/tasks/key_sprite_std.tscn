@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://igju0yrtjp3"]
+
+[ext_resource type="Texture2D" uid="uid://cv24gpqsh0yne" path="res://assets/sprites/key_std_spritesheet.png" id="1_7bahb"]
+[ext_resource type="Script" path="res://scripts/key_sprite_std.gd" id="1_b2qaf"]
+[ext_resource type="FontFile" uid="uid://dygqj0mi1841g" path="res://assets/font/kongtext.ttf" id="2_48fu8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oaml"]
+atlas = ExtResource("1_7bahb")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6kdg"]
+atlas = ExtResource("1_7bahb")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx5w7"]
+atlas = ExtResource("1_7bahb")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sqv6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oaml")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6kdg")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx5w7")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_liljf"]
+font = ExtResource("2_48fu8")
+font_size = 64
+outline_size = 3
+outline_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="KeySprite" type="Node2D"]
+script = ExtResource("1_b2qaf")
+
+[node name="Key" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_sqv6x")
+
+[node name="TextAnchorUp" type="Marker2D" parent="."]
+position = Vector2(-9, -8)
+
+[node name="TextAnchorPressed" type="Marker2D" parent="."]
+position = Vector2(-3, -3)
+
+[node name="KeyLabel" type="Label" parent="."]
+offset_left = 81.0
+offset_top = -10.0
+offset_right = 145.0
+offset_bottom = 54.0
+text = "A"
+label_settings = SubResource("LabelSettings_liljf")
+horizontal_alignment = 1
