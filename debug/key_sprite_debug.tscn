@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cd2cxscq7glhc"]
+
+[ext_resource type="Script" path="res://debug/key_sprite_debug.gd" id="1_7nvuj"]
+[ext_resource type="Texture2D" uid="uid://cv24gpqsh0yne" path="res://assets/sprites/key_std_spritesheet.png" id="2_g6xtn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4oaml"]
+atlas = ExtResource("2_g6xtn")
+region = Rect2(0, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6kdg"]
+atlas = ExtResource("2_g6xtn")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx5w7"]
+atlas = ExtResource("2_g6xtn")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_561a6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4oaml")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6kdg")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx5w7")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[node name="KeySpriteDebug" type="Node2D"]
+position = Vector2(543, 447)
+script = ExtResource("1_7nvuj")
+
+[node name="SpriteA" type="AnimatedSprite2D" parent="."]
+position = Vector2(-407, -311)
+sprite_frames = SubResource("SpriteFrames_561a6")
+
+[node name="SpriteD" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_561a6")
+
+[node name="SpriteU" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -272)
+sprite_frames = SubResource("SpriteFrames_561a6")
+
+[node name="SpriteL" type="AnimatedSprite2D" parent="."]
+position = Vector2(-265, 0)
+sprite_frames = SubResource("SpriteFrames_561a6")
+
+[node name="SpriteR" type="AnimatedSprite2D" parent="."]
+position = Vector2(265, 0)
+sprite_frames = SubResource("SpriteFrames_561a6")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TimerA" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerA" to="." method="_on_timer_a_timeout"]
