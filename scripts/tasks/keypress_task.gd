@@ -6,8 +6,8 @@ class_name KeypressTask extends TaskGoal
 var key_order: Array[String]
 var next_key_index: int
 
-func _init(keys: Array[String], finish_signal: Signal):
-	super(finish_signal)
+func _init(keys: Array[String], signals: TaskSignals):
+	super(signals)
 	key_order = keys
 	next_key_index = 0
 
