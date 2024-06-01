@@ -15,5 +15,14 @@ func reset_goal():
 func is_complete() -> bool:
 	return false
 
+static func _str_to_arr(str: String) -> Array[String]:
+	var arr: Array[String] = []
+	for c in str:
+		arr.push_back(c)
+	return arr
+
 static func normalize_pattern(pattern: String) -> Array[String]:
-	return pattern.to_lower().to_ascii_buffer()
+	return _str_to_arr(pattern.to_lower())
+
+static func normalize_key_event(event: InputEventKey) -> String:
+	return event.as_text_key_label().to_lower()

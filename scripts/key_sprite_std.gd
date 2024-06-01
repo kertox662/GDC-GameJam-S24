@@ -4,8 +4,16 @@ var label_center: Vector2
 @export var font_colour: Color = Color(0.9,0.9,0.9)
 @export var font_outline: Color = Color(0.1,0.1,0.1)
 
-func _init(key_label: String):
-	$KeyLabel.text = key_label
+var key_label: String = "A":
+	set(value):
+		assert(len(value) == 1)
+		key_label = value.to_upper()
+		$KeyLabel.text = key_label
+		label_center = $KeyLabel.size/2
+		match $Key.animation:
+			"default": set_normal()
+			"selected": set_selected()
+			"pressed": set_pressed()
 
 func _ready():
 	label_center = $KeyLabel.size/2
@@ -25,8 +33,11 @@ func set_pressed():
 	_set_animation("pressed")
 	_set_label($TextAnchorPressed)
 
-func _set_animation(name: String):
-	$Key.animation = name
+func is_pressed() -> bool:
+	return $Key.animation == "pressed"
+
+func _set_animation(anim_name: String):
+	$Key.animation = anim_name
 
 func _set_label(anchor: Marker2D):
 	$KeyLabel.position = anchor.position - label_center

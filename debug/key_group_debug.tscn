@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buq0ysmotuppu"]
+
+[ext_resource type="Script" path="res://debug/key_group_debug.gd" id="1_rmim3"]
+
+[node name="KeyGroupDebug" type="Node2D"]
+script = ExtResource("1_rmim3")
+
+[node name="Camera2D" type="Camera2D" parent="."]

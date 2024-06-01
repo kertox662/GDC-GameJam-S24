@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bm6xakoo05arc"]
+
+[ext_resource type="Script" path="res://scripts/key_sprite_group.gd" id="1_ymm7a"]
+
+[node name="KeySpriteGroup" type="Node2D"]
+script = ExtResource("1_ymm7a")
