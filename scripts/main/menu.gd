@@ -11,6 +11,9 @@ func _ready():
 	quit_tween.tween_property($QuitButton, "position", $QuitAnchor.position, 1.2)
 	quit_tween.tween_callback(make_credit_button_visible)
 
+func _on_play_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/main/game_canvas.tscn")
+
 func _on_quit_button_pressed():
 	get_tree().quit()
 	
@@ -29,3 +32,4 @@ func make_credits_invisible():
 func _input(event):
 	if event is InputEventKey and event.keycode == KEY_ESCAPE:
 		make_credits_invisible()
+
