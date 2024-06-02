@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dlqa8q4bxp55h"]
+[gd_scene load_steps=13 format=3 uid="uid://dlqa8q4bxp55h"]
 
 [ext_resource type="Script" path="res://scripts/difficulty_manager.gd" id="1_51jxl"]
 [ext_resource type="PackedScene" uid="uid://buq0ysmotuppu" path="res://debug/key_group_debug.tscn" id="1_65br8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://debug/spritemask_v2.gdshader" id="2_wbcbp"]
 [ext_resource type="PackedScene" uid="uid://ik25y11vkm6a" path="res://debug/game_timer/game_timer.tscn" id="3_j6eul"]
 [ext_resource type="AudioStream" uid="uid://bdqu7ds65cy6" path="res://assets/audio/fast_on_to_move.mp3" id="4_27erw"]
+[ext_resource type="PackedScene" uid="uid://4sl6bxgoc6ag" path="res://debug/task_list/task_list.tscn" id="5_c1dud"]
 [ext_resource type="Shader" path="res://debug/screen_blur.gdshader" id="8_wg4ld"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uoqmc"]
@@ -56,5 +57,10 @@ offset_bottom = 648.0
 texture = SubResource("ViewportTexture_di0ei")
 
 [node name="GameTimer" parent="." instance=ExtResource("3_j6eul")]
+
+[node name="TaskList" parent="." instance=ExtResource("5_c1dud")]
+position = Vector2(6, 47)
+rotation = -0.118682
+scale = Vector2(0.12, 0.12)
 
 [connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]
