@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1v3q8uji2wsf"]
+
+[ext_resource type="Script" path="res://debug/shader_move_debug.gd" id="1_butx6"]
+[ext_resource type="Shader" path="res://debug/shader_move_debug.gdshader" id="2_6hiay"]
+[ext_resource type="Texture2D" uid="uid://bp4ka0kefeekv" path="res://assets/sprites/key_alt_highlight.png" id="2_6y32r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w3ymr"]
+shader = ExtResource("2_6hiay")
+
+[node name="ShaderMoveDebug" type="Node2D"]
+script = ExtResource("1_butx6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w3ymr")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_6y32r")

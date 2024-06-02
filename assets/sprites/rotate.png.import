@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bd4gqrkb2wge2"
-path="res://.godot/imported/key_alt_normal.png-639e71040d41228c038b101f026d6b6d.ctex"
+uid="uid://ctoiojs00tl4t"
+path="res://.godot/imported/rotate.png-0b0dcd0b143698673b47b78c8a11451a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/key_alt_normal.png"
-dest_files=["res://.godot/imported/key_alt_normal.png-639e71040d41228c038b101f026d6b6d.ctex"]
+source_file="res://assets/sprites/rotate.png"
+dest_files=["res://.godot/imported/rotate.png-0b0dcd0b143698673b47b78c8a11451a.ctex"]
 
 [params]
 

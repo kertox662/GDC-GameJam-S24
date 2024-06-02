@@ -27,7 +27,7 @@ static func create_word_pattern(pattern: String) -> KeySpriteGroup:
 	return _create_key_group(pattern, inst, false)
 
 static func _create_key_group(pattern: String, inst, reversed: bool):
-	assert(len(pattern) == inst.get_child_count())
+	assert(len(pattern) == inst.get_node("SpriteGroup").get_child_count())
 	
 	var ind = 0
 	var dir = 1
@@ -36,8 +36,8 @@ static func _create_key_group(pattern: String, inst, reversed: bool):
 		dir = -1
 		
 	var sprites = []
-	for child in inst.get_children():
-		inst.remove_child(child)
+	for child in inst.get_node("SpriteGroup").get_children():
+		inst.get_node("SpriteGroup").remove_child(child)
 		child.key_label = pattern[ind]
 		sprites.push_back(child)
 		ind += dir
@@ -45,5 +45,14 @@ static func _create_key_group(pattern: String, inst, reversed: bool):
 	if reversed:
 		sprites.reverse()
 	
-	return KeySpriteGroup.new(pattern, sprites)
+	var group = KeySpriteGroup.new(pattern, sprites)
 	
+	var hint_name = "Hint"
+	if reversed:
+		hint_name = "HintR"
+	
+	var hint = inst.get_node(hint_name)
+	if hint != null:
+		inst.remove_child(hint)
+		group.add_child(hint)
+	return group

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc8kx1b7sw3xf"
-path="res://.godot/imported/key_space_press.png-de077da4e78f09ef840adacb6e671351.ctex"
+uid="uid://cf2qs542gfqdf"
+path="res://.godot/imported/magnifying.png-480f25726ec97b65b24c0a9e038fd165.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/key_space_press.png"
-dest_files=["res://.godot/imported/key_space_press.png-de077da4e78f09ef840adacb6e671351.ctex"]
+source_file="res://assets/sprites/magnifying.png"
+dest_files=["res://.godot/imported/magnifying.png-480f25726ec97b65b24c0a9e038fd165.ctex"]
 
 [params]
 

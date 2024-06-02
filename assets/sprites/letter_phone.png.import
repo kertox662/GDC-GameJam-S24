@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvqasnvwypmis"
-path="res://.godot/imported/key_space_highlight.png-8817e555645d0e81cede312346bda864.ctex"
+uid="uid://dy3y1jbiqcnvu"
+path="res://.godot/imported/letter_phone.png-78b873084e93a1c858bd0110c0e6fe46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/key_space_highlight.png"
-dest_files=["res://.godot/imported/key_space_highlight.png-8817e555645d0e81cede312346bda864.ctex"]
+source_file="res://assets/sprites/letter_phone.png"
+dest_files=["res://.godot/imported/letter_phone.png-78b873084e93a1c858bd0110c0e6fe46.ctex"]
 
 [params]
 

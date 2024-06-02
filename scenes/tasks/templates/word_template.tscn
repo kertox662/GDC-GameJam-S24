@@ -4,13 +4,15 @@
 
 [node name="SwipeTemplate" type="Node2D"]
 
-[node name="KeySprite" parent="." instance=ExtResource("1_1632l")]
+[node name="SpriteGroup" type="Node2D" parent="."]
 
-[node name="KeySprite2" parent="." instance=ExtResource("1_1632l")]
+[node name="KeySprite" parent="SpriteGroup" instance=ExtResource("1_1632l")]
+
+[node name="KeySprite2" parent="SpriteGroup" instance=ExtResource("1_1632l")]
 position = Vector2(128, 0)
 
-[node name="KeySprite3" parent="." instance=ExtResource("1_1632l")]
+[node name="KeySprite3" parent="SpriteGroup" instance=ExtResource("1_1632l")]
 position = Vector2(256, 0)
 
-[node name="KeySprite4" parent="." instance=ExtResource("1_1632l")]
+[node name="KeySprite4" parent="SpriteGroup" instance=ExtResource("1_1632l")]
 position = Vector2(384, 0)
