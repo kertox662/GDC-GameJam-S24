@@ -32,6 +32,7 @@ func set_selected():
 func set_pressed():
 	_set_animation("pressed")
 	_set_label($TextAnchorPressed)
+	$KeyClick.play(0)
 
 func is_pressed() -> bool:
 	return $Key.animation == "pressed"
