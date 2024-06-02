@@ -53,6 +53,8 @@ func add_entity():
 	
 func random_entity():
 	var reverse = randf() > 0.5
+	if possible_tasks.size() == 0:
+		return null
 	var random_task = possible_tasks.pick_random()
 	if random_task == null:
 		return null
