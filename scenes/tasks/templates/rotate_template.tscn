@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bgt5v4ixaahvv"]
+[gd_scene load_steps=8 format=3 uid="uid://bgt5v4ixaahvv"]
 
 [ext_resource type="PackedScene" uid="uid://igju0yrtjp3" path="res://scenes/tasks/key_sprite_std.tscn" id="1_4oi1e"]
-[ext_resource type="Texture2D" path="res://assets/sprites/rotate.png" id="2_bq4fo"]
+[ext_resource type="Texture2D" uid="uid://ctoiojs00tl4t" path="res://assets/sprites/rotate.png" id="2_bq4fo"]
 [ext_resource type="Shader" path="res://debug/spritemask_v2.gdshader" id="2_m5lsn"]
 [ext_resource type="Script" path="res://debug/ShaderParent.gd" id="3_nauld"]
+[ext_resource type="Texture2D" uid="uid://dnl7svcnol85q" path="res://assets/sprites/shopping.png" id="5_plqm1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5l4m1"]
 shader = ExtResource("2_m5lsn")
@@ -47,3 +48,9 @@ position = Vector2(150, 127)
 [node name="KeySprite4" parent="SpriteGroup" instance=ExtResource("1_4oi1e")]
 material = SubResource("ShaderMaterial_gr1qx")
 position = Vector2(23, 127)
+
+[node name="TaskIcon" type="Sprite2D" parent="."]
+position = Vector2(-154, 60)
+rotation = 0.174533
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("5_plqm1")

@@ -56,6 +56,11 @@ static func _create_key_group(pattern: String, inst, reversed: bool):
 		inst.remove_child(hint)
 		group.add_child(hint)
 	
+	var icon = inst.get_node("TaskIcon")
+	if icon != null:
+		inst.remove_child(icon)
+		group.add_child(icon)
+	
 	inst.queue_free()	
 	
 	return group
