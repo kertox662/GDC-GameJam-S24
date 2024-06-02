@@ -1,5 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlqa8q4bxp55h"]
 
+[ext_resource type="Script" path="res://scripts/difficulty_manager.gd" id="1_51jxl"]
 [ext_resource type="PackedScene" uid="uid://buq0ysmotuppu" path="res://debug/key_group_debug.tscn" id="1_65br8"]
 [ext_resource type="Script" path="res://scripts/main/game_canvas.gd" id="1_sbutj"]
 [ext_resource type="PackedScene" uid="uid://dslxsll6iiudb" path="res://scenes/magnifying_glass.tscn" id="2_n28gd"]
@@ -19,6 +20,10 @@ color = Color(1, 1, 1, 0.0470588)
 
 [node name="KeyGroupDebug" parent="ColorRect" instance=ExtResource("1_65br8")]
 position = Vector2(580, 332)
+
+[node name="DifficultyManager2" type="Node2D" parent="ColorRect/KeyGroupDebug"]
+position = Vector2(-580, -332)
+script = ExtResource("1_51jxl")
 
 [node name="MagnifyingGlass" parent="ColorRect" instance=ExtResource("2_n28gd")]
 
