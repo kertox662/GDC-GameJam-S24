@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bivygdlax3mpt"
-path="res://.godot/imported/key_alt_press.png-a4200c27a641ba87821b04aae68070d9.ctex"
+uid="uid://yt2kyb60o8fd"
+path="res://.godot/imported/pet_bowl.png-4a119f7e8f08b4b8b59204fd5d3fa376.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/key_alt_press.png"
-dest_files=["res://.godot/imported/key_alt_press.png-a4200c27a641ba87821b04aae68070d9.ctex"]
+source_file="res://assets/sprites/pet_bowl.png"
+dest_files=["res://.godot/imported/pet_bowl.png-4a119f7e8f08b4b8b59204fd5d3fa376.ctex"]
 
 [params]
 

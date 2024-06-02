@@ -10,20 +10,17 @@ func _init(keys: String, signals: TaskSignals):
 	super(signals)
 	key_order = _str_to_arr(keys)
 	next_key_index = 0
-	print(keys)
 
 func is_input_correct(event) -> bool:
 	return key_order[next_key_index] == TaskGoal.normalize_key_event(event)
 
 func key_input(event: InputEventKey):
 	if !is_complete() and event.pressed and is_input_correct(event):
-		print("NEXT")
 		signals.unselect_sig.emit([0,next_key_index])
 		next_key_index += 1
 		if !is_complete():
 			signals.select_sig.emit([0,next_key_index])
 	if next_key_index >= len(key_order):
-		print("FINISHING")
 		signals.finish_sig.emit()
 
 func reset_goal():

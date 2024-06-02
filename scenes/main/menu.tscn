@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://dtd3kmmimrn11"]
+
+[ext_resource type="Texture2D" uid="uid://dkyld0hqijp71" path="res://assets/title/TitleBack.png" id="1_r1i2f"]
+[ext_resource type="Script" path="res://scripts/main/menu.gd" id="1_xbk4n"]
+[ext_resource type="Texture2D" uid="uid://p7ncelxnrndj" path="res://assets/title/TitleLogo.png" id="3_yfwsi"]
+[ext_resource type="Texture2D" uid="uid://d2yvqb3c7uftr" path="res://assets/title/TitleSign.png" id="4_n1icb"]
+[ext_resource type="Texture2D" uid="uid://dwqxgw0s0qa2e" path="res://assets/title/TitleQuit.png" id="5_g5y8d"]
+[ext_resource type="Texture2D" uid="uid://qlf5fkwnwgub" path="res://assets/title/TitleSignBright2.png" id="5_iacsw"]
+[ext_resource type="Texture2D" uid="uid://bcphkdgq1pwo7" path="res://assets/title/TitleSignBright.png" id="6_qfekw"]
+[ext_resource type="Texture2D" uid="uid://dcys38d0w2myb" path="res://assets/title/TitleQuitBright2.png" id="8_ra3jd"]
+[ext_resource type="Texture2D" uid="uid://cfbah7g2a1p25" path="res://assets/title/TitleQuitBright.png" id="9_k0atc"]
+[ext_resource type="Texture2D" uid="uid://nhy777q218p" path="res://assets/title/CreditsButton.png" id="10_8kurw"]
+[ext_resource type="Texture2D" uid="uid://cfqfdymj5ivmb" path="res://assets/title/CreditsButtonBright.png" id="11_f1dku"]
+[ext_resource type="FontFile" uid="uid://dygqj0mi1841g" path="res://assets/font/kongtext.ttf" id="11_t5di1"]
+[ext_resource type="Texture2D" uid="uid://clxumfsp1sgbc" path="res://assets/title/CreditsButtonBright2.png" id="12_oqv3q"]
+
+[sub_resource type="GDScript" id="GDScript_ppb8g"]
+script/source = "extends TextureButton
+
+"
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_xbk4n")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_left = 2.0
+offset_top = -438.0
+offset_right = 2561.0
+offset_bottom = 1447.0
+texture = ExtResource("1_r1i2f")
+
+[node name="Logo" type="TextureRect" parent="."]
+offset_left = 617.0
+offset_top = -688.0
+offset_right = 1911.0
+offset_bottom = -16.0
+texture = ExtResource("3_yfwsi")
+expand_mode = 1
+
+[node name="PlayButton" type="TextureButton" parent="."]
+offset_left = 699.0
+offset_top = 1401.0
+offset_right = 1240.0
+offset_bottom = 1767.0
+texture_normal = ExtResource("4_n1icb")
+texture_pressed = ExtResource("5_iacsw")
+texture_hover = ExtResource("6_qfekw")
+
+[node name="QuitButton" type="TextureButton" parent="."]
+offset_left = 1365.0
+offset_top = 1443.0
+offset_right = 1906.0
+offset_bottom = 1809.0
+texture_normal = ExtResource("5_g5y8d")
+texture_pressed = ExtResource("8_ra3jd")
+texture_hover = ExtResource("9_k0atc")
+script = SubResource("GDScript_ppb8g")
+
+[node name="LogoAnchor" type="Marker2D" parent="."]
+position = Vector2(610, 28)
+
+[node name="PlayAnchor" type="Marker2D" parent="."]
+position = Vector2(690, 1082)
+
+[node name="QuitAnchor" type="Marker2D" parent="."]
+position = Vector2(1365, 1126)
+
+[node name="CreditsButton" type="TextureButton" parent="."]
+visible = false
+offset_left = 2128.0
+offset_top = -3.0
+offset_right = 2555.0
+offset_bottom = 310.0
+texture_normal = ExtResource("10_8kurw")
+texture_pressed = ExtResource("12_oqv3q")
+texture_hover = ExtResource("11_f1dku")
+
+[node name="Credits" type="Panel" parent="."]
+visible = false
+offset_left = -2.0
+offset_top = 1.0
+offset_right = 2564.0
+offset_bottom = 1450.0
+
+[node name="CreditsLabel" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 33.0
+offset_right = 1590.0
+offset_bottom = 205.0
+theme_override_fonts/font = ExtResource("11_t5di1")
+theme_override_font_sizes/font_size = 32
+text = "ESC
+
+Contributors:
+Owen Gallagher - Developer
+Maria Melnyk - Art
+Misha Melnyk - Developer
+Nicole Planeta - Art and Developer
+
+----------------------------------
+External Credits:
+Kongtext Font - codename38 - zone38.net"
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

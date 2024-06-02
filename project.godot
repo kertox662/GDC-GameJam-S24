@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="GDC-GameJam-S24"
-run/main_scene="res://debug/key_group_debug.tscn"
+run/main_scene="res://scenes/main/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GlobalStore="*res://scripts/main/global_store.gd"
+
+[display]
+
+window/size/viewport_width=2560
+window/size/viewport_height=1440
 
 [rendering]
 

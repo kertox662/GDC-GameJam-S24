@@ -9,9 +9,7 @@ static func setup_patterns():
 	vup_swipe_patterns.shuffle()
 	vup_swipe_patterns.resize(2)
 	for i in len(vup_swipe_patterns):
-		print(vup_swipe_patterns[i])
 		vup_swipe_patterns[i] = vup_swipe_patterns[i].reverse()
-		print(vup_swipe_patterns[i])
 	
 	vdown_swipe_patterns.shuffle()
 	vdown_swipe_patterns.resize(2)

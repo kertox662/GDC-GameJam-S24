@@ -9,7 +9,7 @@ void fragment() {
 	float spsx = SCREEN_PIXEL_SIZE.x;
 	float ar = spsx/SCREEN_PIXEL_SIZE.y;
     vec2 normalized = vec2(SCREEN_UV.x, SCREEN_UV.y*ar);
-    if (distance(vec2(x,y*ar), normalized) > 0.1) {
+    if (distance(vec2(x,y*ar), normalized) > 0.15) {
         discard;
     }
 }

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp4ka0kefeekv"
-path="res://.godot/imported/key_alt_highlight.png-aafb3516d055db118f295234a9559986.ctex"
+uid="uid://clxumfsp1sgbc"
+path="res://.godot/imported/CreditsButtonBright2.png-bb5bf30587855b55665b63a6355a3aa2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/key_alt_highlight.png"
-dest_files=["res://.godot/imported/key_alt_highlight.png-aafb3516d055db118f295234a9559986.ctex"]
+source_file="res://assets/title/CreditsButtonBright2.png"
+dest_files=["res://.godot/imported/CreditsButtonBright2.png-bb5bf30587855b55665b63a6355a3aa2.ctex"]
 
 [params]
 

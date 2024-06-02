@@ -38,5 +38,4 @@ func _on_task_reset():
 	task_goal.reset_goal()
 
 func _on_task_complete():
-	print("FINISHED")
 	queue_free()

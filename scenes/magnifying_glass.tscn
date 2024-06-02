@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dslxsll6iiudb"]
+
+[ext_resource type="Script" path="res://scenes/magnifying_glass.gd" id="1_87mr7"]
+[ext_resource type="Texture2D" uid="uid://cf2qs542gfqdf" path="res://assets/sprites/magnifying.png" id="1_drq11"]
+
+[node name="MagnifyingGlass" type="Node2D"]
+script = ExtResource("1_87mr7")
+
+[node name="Magnifying" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("1_drq11")
+offset = Vector2(-240.625, 284.375)
