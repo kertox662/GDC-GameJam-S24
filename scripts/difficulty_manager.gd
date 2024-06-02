@@ -3,11 +3,11 @@ class_name DifficultyManager
 
 var possible_tasks = [0,1,2,3,4]
 var creator = [
-		[TaskEntityFactory.create_h_swipe_pattern, {"x": -350, "y": -100}],
-		[TaskEntityFactory.create_vup_swipe_pattern, {"x": -250, "y": 50}],
-		[TaskEntityFactory.create_vdown_swipe_pattern, {"x": -150, "y": 50}],
-		[TaskEntityFactory.create_rotate_pattern, {"x": 50, "y": -150}],
-		[TaskEntityFactory.create_word_pattern, {"x": 150, "y": 50}],
+		[TaskEntityFactory.create_h_swipe_pattern, {"x": 300, "y": 450}],
+		[TaskEntityFactory.create_vup_swipe_pattern, {"x": 350, "y": 200}],
+		[TaskEntityFactory.create_vdown_swipe_pattern, {"x": 400, "y": 450}],
+		[TaskEntityFactory.create_rotate_pattern, {"x": 450, "y": 200}],
+		[TaskEntityFactory.create_word_pattern, {"x": 500, "y": 450}],
 	]
 var group
 var entities = []
@@ -43,13 +43,13 @@ func add_entity():
 	var actual_entity = entity_packet[0]
 	array_of_task_statuses[task_number] = true
 	possible_tasks.erase(task_number)
-	print(possible_tasks)
 	actual_entity.scale = Vector2(0.5,0.5)
 	var offset_y = randi_range(-200, 200)
-	actual_entity.position += Vector2(entity_packet[2]["x"], entity_packet[2]["y"])
+	actual_entity.global_position += Vector2(entity_packet[2]["x"], entity_packet[2]["y"])
 	
 	add_child(actual_entity)
 	entities.append([actual_entity, task_number])
+	$"../../../GameTimer".add_incomplete_task()
 	
 func random_entity():
 	var reverse = randf() > 0.5
@@ -71,6 +71,7 @@ func current_time_buildup():
 
 func adjust_difficulty():
 	print("incomplete tasks: " + str(current_task_buildup()) + "   increase to: " + str(current_time_buildup()))
+	print(entities)
 	# detect completed tasks
 	for entity in entities:
 			if not is_instance_valid(entity[0]):
@@ -78,6 +79,7 @@ func adjust_difficulty():
 				entities.erase(entity)
 				possible_tasks.append(index)
 				array_of_task_statuses[index] = false
+				$"../../../GameTimer".complete_task()
 	while float(current_task_buildup()) < current_time_buildup():
 		add_entity()
 
