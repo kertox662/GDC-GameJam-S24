@@ -102,10 +102,16 @@ Nicole Planeta - Art and Developer
 
 ----------------------------------
 External Credits:
-Kongtext Font - codename38 - zone38.net"
+Kongtext Font - codename38 - zone38.net
+Fast on the Move - Sonican - Pixabay
+soul for stree relief - Musicalmix2020 - Pixabay
+Game over 39 - Audiosto - Pixabay
+Meow - Pixabay - Pixabay
+Hard single key press on laptop - Mixkit"
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_amppa")
+volume_db = -40.0
 autoplay = true
 max_polyphony = 3
 

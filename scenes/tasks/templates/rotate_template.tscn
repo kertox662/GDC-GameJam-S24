@@ -1,13 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgt5v4ixaahvv"]
+[gd_scene load_steps=7 format=3 uid="uid://bgt5v4ixaahvv"]
 
 [ext_resource type="PackedScene" uid="uid://igju0yrtjp3" path="res://scenes/tasks/key_sprite_std.tscn" id="1_4oi1e"]
 [ext_resource type="Texture2D" uid="uid://ctoiojs00tl4t" path="res://assets/sprites/rotate.png" id="2_bq4fo"]
 [ext_resource type="Shader" path="res://debug/spritemask_v2.gdshader" id="2_m5lsn"]
 [ext_resource type="Script" path="res://debug/ShaderParent.gd" id="3_nauld"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c54ig"]
-shader = ExtResource("2_m5lsn")
-shader_parameter/mouse_pos = Vector2(0.5, 0.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5l4m1"]
 shader = ExtResource("2_m5lsn")
@@ -20,7 +16,6 @@ shader_parameter/mouse_pos = Vector2(0.5, 0.5)
 [node name="SwipeTemplate" type="Node2D"]
 
 [node name="Hint" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_c54ig")
 position = Vector2(262, 63)
 rotation = 4.35983
 scale = Vector2(0.075, 0.075)
@@ -29,7 +24,6 @@ flip_h = true
 script = ExtResource("3_nauld")
 
 [node name="HintR" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_c54ig")
 position = Vector2(262, 63)
 rotation = 5.06495
 scale = Vector2(0.075, 0.075)

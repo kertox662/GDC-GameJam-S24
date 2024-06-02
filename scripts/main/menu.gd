@@ -7,6 +7,8 @@ func _ready():
 	tween.set_parallel()
 	tween.tween_property($Logo, "position", $LogoAnchor.position, 1)
 	tween.tween_property($PlayButton, "position", $PlayAnchor.position, 1.2)
+	tween.tween_property($MenuMusic, "volume_db", -12, 3)
+	
 	var quit_tween = get_tree().create_tween()
 	quit_tween.tween_property($QuitButton, "position", $QuitAnchor.position, 1.2)
 	quit_tween.tween_callback(make_credit_button_visible)

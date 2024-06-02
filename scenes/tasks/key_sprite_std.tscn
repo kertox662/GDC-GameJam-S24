@@ -1,9 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://igju0yrtjp3"]
+[gd_scene load_steps=12 format=3 uid="uid://igju0yrtjp3"]
 
 [ext_resource type="Texture2D" uid="uid://cv24gpqsh0yne" path="res://assets/sprites/key_std_spritesheet.png" id="1_7bahb"]
 [ext_resource type="Script" path="res://scripts/key_sprite_std.gd" id="1_b2qaf"]
 [ext_resource type="FontFile" uid="uid://dygqj0mi1841g" path="res://assets/font/kongtext.ttf" id="2_48fu8"]
+[ext_resource type="Shader" path="res://debug/spritemask_v2.gdshader" id="3_8hpej"]
 [ext_resource type="AudioStream" uid="uid://cra7cerxm0ulc" path="res://assets/audio/keyboard.mp3" id="4_jfg2j"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4kda"]
+resource_local_to_scene = true
+shader = ExtResource("3_8hpej")
+shader_parameter/mouse_pos = Vector2(0.5, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4oaml"]
 atlas = ExtResource("1_7bahb")
@@ -51,6 +57,7 @@ outline_size = 3
 outline_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="KeySprite" type="Node2D"]
+material = SubResource("ShaderMaterial_v4kda")
 script = ExtResource("1_b2qaf")
 
 [node name="Key_backup" type="AnimatedSprite2D" parent="."]
@@ -70,6 +77,7 @@ position = Vector2(-9, -8)
 position = Vector2(-3, -3)
 
 [node name="KeyLabel" type="Label" parent="."]
+use_parent_material = true
 offset_left = 81.0
 offset_top = -10.0
 offset_right = 145.0

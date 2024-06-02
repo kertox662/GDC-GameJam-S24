@@ -1,11 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://w373nac5bymm"]
+[gd_scene load_steps=8 format=3 uid="uid://w373nac5bymm"]
 
 [ext_resource type="PackedScene" uid="uid://igju0yrtjp3" path="res://scenes/tasks/key_sprite_std.tscn" id="1_4ief2"]
 [ext_resource type="Shader" path="res://debug/spritemask_v2.gdshader" id="2_l2hha"]
 [ext_resource type="Texture2D" uid="uid://blk8tqoeyscp4" path="res://assets/sprites/arrow.png" id="2_ok4sn"]
 [ext_resource type="Script" path="res://debug/ShaderParent.gd" id="4_6x0ex"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_voxky"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vfry"]
+resource_local_to_scene = true
+shader = ExtResource("2_l2hha")
+shader_parameter/mouse_pos = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onkco"]
+resource_local_to_scene = true
+shader = ExtResource("2_l2hha")
+shader_parameter/mouse_pos = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jxtyq"]
+resource_local_to_scene = true
 shader = ExtResource("2_l2hha")
 shader_parameter/mouse_pos = Vector2(0.5, 0.5)
 
@@ -14,15 +25,17 @@ shader_parameter/mouse_pos = Vector2(0.5, 0.5)
 [node name="SpriteGroup" type="Node2D" parent="."]
 
 [node name="KeySprite" parent="SpriteGroup" instance=ExtResource("1_4ief2")]
+material = SubResource("ShaderMaterial_8vfry")
 
 [node name="KeySprite2" parent="SpriteGroup" instance=ExtResource("1_4ief2")]
+material = SubResource("ShaderMaterial_onkco")
 position = Vector2(-34, 127)
 
 [node name="KeySprite3" parent="SpriteGroup" instance=ExtResource("1_4ief2")]
+material = SubResource("ShaderMaterial_jxtyq")
 position = Vector2(-67, 254)
 
 [node name="HintR" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_voxky")
 position = Vector2(-173.649, 107.249)
 rotation = -1.27409
 scale = Vector2(0.1, 0.1)
@@ -31,7 +44,6 @@ flip_h = true
 script = ExtResource("4_6x0ex")
 
 [node name="Hint" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_voxky")
 position = Vector2(-173.649, 107.249)
 rotation = -1.27409
 scale = Vector2(0.1, 0.1)

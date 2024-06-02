@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dlqa8q4bxp55h"]
+[gd_scene load_steps=7 format=3 uid="uid://dlqa8q4bxp55h"]
 
 [ext_resource type="Script" path="res://scripts/difficulty_manager.gd" id="1_51jxl"]
 [ext_resource type="PackedScene" uid="uid://buq0ysmotuppu" path="res://debug/key_group_debug.tscn" id="1_65br8"]
@@ -33,3 +33,5 @@ script = ExtResource("1_51jxl")
 stream = ExtResource("4_27erw")
 volume_db = -40.0
 autoplay = true
+
+[connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]
