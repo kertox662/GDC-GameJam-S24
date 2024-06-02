@@ -4,10 +4,10 @@ class_name DifficultyManager
 var possible_tasks = [0,1,2,3,4]
 var creator = [
 		[TaskEntityFactory.create_h_swipe_pattern, {"x": 300, "y": 450}],
-		[TaskEntityFactory.create_vup_swipe_pattern, {"x": 350, "y": 200}],
-		[TaskEntityFactory.create_vdown_swipe_pattern, {"x": 400, "y": 450}],
-		[TaskEntityFactory.create_rotate_pattern, {"x": 450, "y": 200}],
-		[TaskEntityFactory.create_word_pattern, {"x": 500, "y": 450}],
+		[TaskEntityFactory.create_vup_swipe_pattern, {"x": 850, "y": 150}],
+		[TaskEntityFactory.create_vdown_swipe_pattern, {"x": 400, "y": 150}],
+		[TaskEntityFactory.create_rotate_pattern, {"x": 650, "y": 400}],
+		[TaskEntityFactory.create_word_pattern, {"x": 700, "y": 850}],
 	]
 var group
 var entities = []
@@ -46,6 +46,7 @@ func add_entity():
 	actual_entity.scale = Vector2(0.5,0.5)
 	var offset_y = randi_range(-200, 200)
 	actual_entity.global_position += Vector2(entity_packet[2]["x"], entity_packet[2]["y"])
+	#actual_entity.global_position = Vector2(0, 0)
 	
 	add_child(actual_entity)
 	entities.append([actual_entity, task_number])
