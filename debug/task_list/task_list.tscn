@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://4sl6bxgoc6ag"]
+
+[ext_resource type="Texture2D" uid="uid://b5ebut7twlyps" path="res://assets/sprites/just_phone.png" id="1_26x25"]
+[ext_resource type="Script" path="res://debug/task_list/task_list.gd" id="1_li07f"]
+[ext_resource type="Texture2D" uid="uid://cs0ql233j0pxv" path="res://assets/sprites/notif_circle.png" id="3_4eiya"]
+
+[sub_resource type="Animation" id="Animation_g1svc"]
+resource_name = "notif_animation"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotifCircle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.123397, 0.234632),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(700, 368), Vector2(700, 450), Vector2(700, 368)]
+}
+
+[sub_resource type="Animation" id="Animation_3ekp2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotifCircle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(700, 368)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ay5i"]
+_data = {
+"RESET": SubResource("Animation_3ekp2"),
+"notif_animation": SubResource("Animation_g1svc")
+}
+
+[node name="TaskList" type="Node2D"]
+script = ExtResource("1_li07f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(401.375, 839.637)
+scale = Vector2(0.909064, 0.909064)
+texture = ExtResource("1_26x25")
+
+[node name="NotifCircle" type="Sprite2D" parent="."]
+position = Vector2(700, 368)
+scale = Vector2(1.3125, 1.3125)
+texture = ExtResource("3_4eiya")
+
+[node name="Label" type="Label" parent="NotifCircle"]
+offset_left = -106.667
+offset_top = -167.619
+offset_right = 113.333
+offset_bottom = 174.381
+theme_override_font_sizes/font_size = 210
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3ay5i")
+}

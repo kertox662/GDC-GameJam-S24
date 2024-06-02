@@ -1,11 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlqa8q4bxp55h"]
+[gd_scene load_steps=8 format=3 uid="uid://dlqa8q4bxp55h"]
 
 [ext_resource type="Script" path="res://scripts/difficulty_manager.gd" id="1_51jxl"]
 [ext_resource type="PackedScene" uid="uid://buq0ysmotuppu" path="res://debug/key_group_debug.tscn" id="1_65br8"]
 [ext_resource type="Script" path="res://scripts/main/game_canvas.gd" id="1_sbutj"]
-[ext_resource type="PackedScene" uid="uid://dslxsll6iiudb" path="res://scenes/magnifying_glass.tscn" id="2_n28gd"]
+[ext_resource type="PackedScene" uid="uid://cbdlgyfut5x0t" path="res://scenes/magnifying_glass.tscn" id="2_n28gd"]
 [ext_resource type="PackedScene" uid="uid://ik25y11vkm6a" path="res://debug/game_timer/game_timer.tscn" id="3_j6eul"]
 [ext_resource type="AudioStream" uid="uid://bdqu7ds65cy6" path="res://assets/audio/fast_on_to_move.mp3" id="4_27erw"]
+[ext_resource type="PackedScene" uid="uid://4sl6bxgoc6ag" path="res://debug/task_list/task_list.tscn" id="5_c1dud"]
 
 [node name="GameCanvas" type="CanvasLayer"]
 script = ExtResource("1_sbutj")
@@ -33,5 +34,9 @@ script = ExtResource("1_51jxl")
 stream = ExtResource("4_27erw")
 volume_db = -40.0
 autoplay = true
+
+[node name="TaskList" parent="." instance=ExtResource("5_c1dud")]
+position = Vector2(-4, 46)
+scale = Vector2(0.0799995, 0.0799995)
 
 [connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]
