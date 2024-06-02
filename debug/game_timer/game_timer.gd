@@ -33,10 +33,3 @@ func complete_task():
 	if num_of_incompleted_tasks < 0:
 		num_of_incompleted_tasks = 0
 
-#Temporary Debug Stuff
-func _input(event):
-	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_Q:
-			add_incomplete_task()
-		elif event.keycode == KEY_E:
-			complete_task()
