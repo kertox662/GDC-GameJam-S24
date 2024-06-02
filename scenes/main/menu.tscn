@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtd3kmmimrn11"]
+[gd_scene load_steps=17 format=3 uid="uid://dtd3kmmimrn11"]
 
 [ext_resource type="Texture2D" uid="uid://dkyld0hqijp71" path="res://assets/title/TitleBack.png" id="1_r1i2f"]
 [ext_resource type="Script" path="res://scripts/main/menu.gd" id="1_xbk4n"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cfqfdymj5ivmb" path="res://assets/title/CreditsButtonBright.png" id="11_f1dku"]
 [ext_resource type="FontFile" uid="uid://dygqj0mi1841g" path="res://assets/font/kongtext.ttf" id="11_t5di1"]
 [ext_resource type="Texture2D" uid="uid://clxumfsp1sgbc" path="res://assets/title/CreditsButtonBright2.png" id="12_oqv3q"]
+[ext_resource type="AudioStream" uid="uid://vjwvtwfor3a" path="res://assets/audio/menu.mp3" id="14_amppa"]
+[ext_resource type="AudioStream" uid="uid://boulygawed7a3" path="res://assets/audio/cat_meow.mp3" id="15_4106j"]
 
 [sub_resource type="GDScript" id="GDScript_ppb8g"]
 script/source = "extends TextureButton
@@ -102,6 +104,16 @@ Nicole Planeta - Art and Developer
 External Credits:
 Kongtext Font - codename38 - zone38.net"
 
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_amppa")
+autoplay = true
+max_polyphony = 3
+
+[node name="MenuEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_4106j")
+volume_db = 10.0
+
+[connection signal="gui_input" from="Logo" to="." method="_on_logo_gui_input"]
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="CreditsButton" to="." method="_on_credits_button_pressed"]

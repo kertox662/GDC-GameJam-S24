@@ -33,3 +33,7 @@ func _input(event):
 	if event is InputEventKey and event.keycode == KEY_ESCAPE:
 		make_credits_invisible()
 
+func _on_logo_gui_input(event):
+	if event is InputEventMouseButton:
+		if !$MenuEffect.playing:
+			$MenuEffect.play()

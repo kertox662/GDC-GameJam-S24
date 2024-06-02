@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvx8jfkvhcsfr"]
+[gd_scene load_steps=4 format=3 uid="uid://dvx8jfkvhcsfr"]
 
-[ext_resource type="Script" path="res://scenes/main/game_over.gd" id="1_eo1bb"]
+[ext_resource type="Script" path="res://scripts/main/game_over.gd" id="1_eo1bb"]
 [ext_resource type="FontFile" uid="uid://dygqj0mi1841g" path="res://assets/font/kongtext.ttf" id="1_tvtap"]
+[ext_resource type="AudioStream" uid="uid://dcjdmjy04yy7l" path="res://assets/audio/game_over.mp3" id="3_vib8v"]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_eo1bb")
@@ -32,3 +33,7 @@ theme_override_font_sizes/font_size = 64
 text = "Press Escape to Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vib8v")
+autoplay = true
