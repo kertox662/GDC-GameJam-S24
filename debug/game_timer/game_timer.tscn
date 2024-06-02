@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ik25y11vkm6a"]
+
+[ext_resource type="Script" path="res://debug/game_timer/game_timer.gd" id="1_h3e5i"]
+
+[sub_resource type="Theme" id="Theme_xbqvk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0ty6"]
+bg_color = Color(0.31, 0.261692, 0.2573, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.51, 0.3978, 0.40902, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta7ru"]
+bg_color = Color(0.959334, 0.393411, 0.302096, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="GameTimer" type="Node2D"]
+script = ExtResource("1_h3e5i")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 1091.0
+offset_bottom = 57.0
+theme = SubResource("Theme_xbqvk")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_b0ty6")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ta7ru")
+max_value = 300.0
+value = 50.0
+show_percentage = false
