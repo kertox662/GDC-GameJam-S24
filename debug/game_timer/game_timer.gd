@@ -13,9 +13,9 @@ func _ready():
 func _process(delta):
 	if(game_active):
 		if num_of_incompleted_tasks > 0:
-			game_timer += delta * num_of_incompleted_tasks
+			game_timer += delta * (num_of_incompleted_tasks - 1) * 0.5 
 		else:
-			game_timer -= delta
+			game_timer -= delta * 3
 		
 		if game_timer < 0:
 			game_timer = 0
