@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalStore="*res://scripts/main/global_store.gd"
 
+[display]
+
+window/size/mode=3
+
 [rendering]
 
 renderer/rendering_method="mobile"
