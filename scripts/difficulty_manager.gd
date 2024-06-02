@@ -1,16 +1,24 @@
 extends Node2D
 class_name DifficultyManager
 
+var possible_tasks = [0,1,2,3,4]
+var creator = [
+		[TaskEntityFactory.create_h_swipe_pattern, {"x": -350, "y": -100}],
+		[TaskEntityFactory.create_vup_swipe_pattern, {"x": -250, "y": 50}],
+		[TaskEntityFactory.create_vdown_swipe_pattern, {"x": -150, "y": 50}],
+		[TaskEntityFactory.create_rotate_pattern, {"x": 50, "y": -150}],
+		[TaskEntityFactory.create_word_pattern, {"x": 150, "y": 50}],
+	]
 var group
 var entities = []
 
-const variation_of_difficulty = 2
-const speed_of_difficulty = 0.00005
-const sin_modifier = (PI/2) + (2*PI)
+const variation_of_difficulty = 1.5
+const speed_of_difficulty = 0.02
+const sin_modifier = 1
 
-var array_of_task_statuses := [false, false, false, false, false, false]
+var array_of_task_statuses := [false, false, false, false, false]
 
-var array_of_task_weighting := [1, 1, 1, 2, 2, 2]
+var array_of_task_weighting := [1, 1, 1, 1, 1]
 
 func _ready():
 	TaskEntityFactory.setup_patterns()
@@ -20,35 +28,35 @@ func _ready():
 func _input(event):
 	if event is InputEventKey:
 		for entity in entities:
-			if entity != null:
-				entity.key_input(event)
+			if entity[0] != null:
+				entity[0].key_input(event)
 		entities.erase(null)
 		
-		if event.keycode == KEY_SPACE and event.pressed:
-			add_entity()
+		#if event.keycode == KEY_SPACE and event.pressed:
+			#add_entity()
 			
 func add_entity():
-	print(self.get_children())
-	var entity = random_entity()
-	entity.scale = Vector2(0.5,0.5)
-	var offset_x = randi_range(-400, 400)
+	var entity_packet = random_entity()
+	if not entity_packet:
+		return
+	var task_number = entity_packet[1]
+	var actual_entity = entity_packet[0]
+	array_of_task_statuses[task_number] = true
+	possible_tasks.erase(task_number)
+	print(possible_tasks)
+	actual_entity.scale = Vector2(0.5,0.5)
 	var offset_y = randi_range(-200, 200)
-	entity.position += Vector2(offset_x, offset_y)
+	actual_entity.position += Vector2(entity_packet[2]["x"], entity_packet[2]["y"])
 	
-	add_child(entity)
-	entities.append(entity)
-	print(self.get_children())
+	add_child(actual_entity)
+	entities.append([actual_entity, task_number])
 	
 func random_entity():
 	var reverse = randf() > 0.5
-	var creator = [
-		TaskEntityFactory.create_h_swipe_pattern,
-		TaskEntityFactory.create_vup_swipe_pattern,
-		TaskEntityFactory.create_vdown_swipe_pattern,
-		TaskEntityFactory.create_rotate_pattern,
-		TaskEntityFactory.create_word_pattern,
-	].pick_random()
-	return creator.call(reverse)
+	var random_task = possible_tasks.pick_random()
+	if random_task == null:
+		return null
+	return [creator[random_task][0].call(reverse), random_task, creator[random_task][1]]
 
 func current_task_buildup():
 	var current_buildup := 0
@@ -58,13 +66,20 @@ func current_task_buildup():
 	return current_buildup
 	
 func current_time_buildup():
-	return (variation_of_difficulty * sin(sin_modifier * Time.get_ticks_msec())) + (speed_of_difficulty * Time.get_ticks_msec())
+	return (variation_of_difficulty * sin(Time.get_ticks_msec() / 1000)) + (speed_of_difficulty * (Time.get_ticks_msec() / 1000)) + sin_modifier
 	
 
 func adjust_difficulty():
-	print("current task: " + str(current_task_buildup()) + "current time: " + str(current_time_buildup()))
-	if float(current_task_buildup()) < current_time_buildup():
+	print("incomplete tasks: " + str(current_task_buildup()) + "   increase to: " + str(current_time_buildup()))
+	# detect completed tasks
+	for entity in entities:
+			if not is_instance_valid(entity[0]):
+				var index = entity[1]
+				entities.erase(entity)
+				possible_tasks.append(index)
+				array_of_task_statuses[index] = false
+	while float(current_task_buildup()) < current_time_buildup():
 		add_entity()
-		pass
+
 	
 	
