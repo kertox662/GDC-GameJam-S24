@@ -44,8 +44,6 @@ script = ExtResource("1_51jxl")
 
 [node name="MagnifyingGlass" parent="ColorRect" instance=ExtResource("2_n28gd")]
 
-[node name="GameTimer" parent="." instance=ExtResource("3_j6eul")]
-
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_27erw")
 volume_db = -40.0
@@ -56,5 +54,7 @@ material = SubResource("ShaderMaterial_tk0p2")
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("ViewportTexture_di0ei")
+
+[node name="GameTimer" parent="." instance=ExtResource("3_j6eul")]
 
 [connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]

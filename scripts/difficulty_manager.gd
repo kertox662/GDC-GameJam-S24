@@ -81,7 +81,10 @@ func adjust_difficulty():
 				array_of_task_statuses[index] = false
 				$"../../../GameTimer".complete_task()
 	while float(current_task_buildup()) < current_time_buildup():
-		add_entity()
+		if current_task_buildup() < len(possible_tasks):
+			add_entity()
+		else:
+			break
 
 	
 	

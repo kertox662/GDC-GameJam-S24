@@ -14,7 +14,7 @@ void fragment() {
 	float spsx = SCREEN_PIXEL_SIZE.x;
 	float ar = spsx/SCREEN_PIXEL_SIZE.y;
     vec2 normalized = vec2(SCREEN_UV.x, SCREEN_UV.y*ar);
-    if (distance(vec2(x,y*ar), normalized) > 0.15) {
+    if (distance(vec2(x,y*ar), normalized) > 0.16) {
         vec2 uv = SCREEN_UV;
 		uv.x += sin(uv.y * frequency + TIME) * depth;
 		uv.x = clamp(uv.x, 0.0, 1.0);
