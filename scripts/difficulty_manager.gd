@@ -70,8 +70,6 @@ func current_time_buildup():
 	
 
 func adjust_difficulty():
-	print("incomplete tasks: " + str(current_task_buildup()) + "   increase to: " + str(current_time_buildup()))
-	print(entities)
 	# detect completed tasks
 	for entity in entities:
 			if not is_instance_valid(entity[0]):

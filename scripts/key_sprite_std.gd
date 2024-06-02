@@ -3,6 +3,7 @@ extends Node2D
 var label_center: Vector2
 @export var font_colour: Color = Color(0.9,0.9,0.9)
 @export var font_outline: Color = Color(0.1,0.1,0.1)
+var should_play_sound: bool = true
 
 var key_label: String = "A":
 	set(value):
@@ -24,14 +25,19 @@ func _ready():
 func set_normal():
 	_set_animation("default")
 	_set_label($TextAnchorUp)
+	should_play_sound = true
 
 func set_selected():
 	_set_animation("selected")
 	_set_label($TextAnchorUp)
+	should_play_sound = true
 	
 func set_pressed():
 	_set_animation("pressed")
 	_set_label($TextAnchorPressed)
+	if should_play_sound:
+		$KeyClick.play(0)
+	should_play_sound = false
 
 func is_pressed() -> bool:
 	return $Key.animation == "pressed"
