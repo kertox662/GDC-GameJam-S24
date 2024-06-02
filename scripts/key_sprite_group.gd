@@ -14,7 +14,9 @@ func _init(pattern: String, sprites):
 
 func _ready():
 	for sprite in sprites:
+		sprite.get_owner().queue_free()
 		add_child(sprite)
+		sprite.set_owner(self)
 
 func set_selected(index: int):
 	assert ((index >= 0) and (index < len(sprites)))

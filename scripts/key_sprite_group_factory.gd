@@ -55,4 +55,7 @@ static func _create_key_group(pattern: String, inst, reversed: bool):
 	if hint != null:
 		inst.remove_child(hint)
 		group.add_child(hint)
+	
+	inst.queue_free()	
+	
 	return group

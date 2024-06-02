@@ -14,7 +14,7 @@ var entities = []
 
 const variation_of_difficulty = 1.5
 const speed_of_difficulty = 0.02
-const sin_modifier = 1
+const sin_modifier = 5
 
 var array_of_task_statuses := [false, false, false, false, false]
 

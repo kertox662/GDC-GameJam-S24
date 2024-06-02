@@ -1,16 +1,33 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlqa8q4bxp55h"]
+[gd_scene load_steps=12 format=3 uid="uid://dlqa8q4bxp55h"]
 
 [ext_resource type="Script" path="res://scripts/difficulty_manager.gd" id="1_51jxl"]
 [ext_resource type="PackedScene" uid="uid://buq0ysmotuppu" path="res://debug/key_group_debug.tscn" id="1_65br8"]
 [ext_resource type="Script" path="res://scripts/main/game_canvas.gd" id="1_sbutj"]
 [ext_resource type="PackedScene" uid="uid://dslxsll6iiudb" path="res://scenes/magnifying_glass.tscn" id="2_n28gd"]
+[ext_resource type="Shader" path="res://debug/spritemask_v2.gdshader" id="2_wbcbp"]
 [ext_resource type="PackedScene" uid="uid://ik25y11vkm6a" path="res://debug/game_timer/game_timer.tscn" id="3_j6eul"]
 [ext_resource type="AudioStream" uid="uid://bdqu7ds65cy6" path="res://assets/audio/fast_on_to_move.mp3" id="4_27erw"]
+[ext_resource type="Shader" path="res://debug/screen_blur.gdshader" id="8_wg4ld"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uoqmc"]
+shader = ExtResource("2_wbcbp")
+shader_parameter/mouse_pos = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk0p2"]
+shader = ExtResource("8_wg4ld")
+shader_parameter/mouse_pos = Vector2(0.5, 0.5)
+shader_parameter/blur_amount = 5.0
+shader_parameter/frequency = 60.0
+shader_parameter/depth = 0.005
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_di0ei"]
 
 [node name="GameCanvas" type="CanvasLayer"]
 script = ExtResource("1_sbutj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_uoqmc")
+use_parent_material = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,5 +50,11 @@ script = ExtResource("1_51jxl")
 stream = ExtResource("4_27erw")
 volume_db = -40.0
 autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_tk0p2")
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("ViewportTexture_di0ei")
 
 [connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]

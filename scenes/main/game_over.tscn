@@ -1,8 +1,73 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvx8jfkvhcsfr"]
+[gd_scene load_steps=14 format=3 uid="uid://dvx8jfkvhcsfr"]
 
 [ext_resource type="Script" path="res://scripts/main/game_over.gd" id="1_eo1bb"]
 [ext_resource type="FontFile" uid="uid://dygqj0mi1841g" path="res://assets/font/kongtext.ttf" id="1_tvtap"]
 [ext_resource type="AudioStream" uid="uid://dcjdmjy04yy7l" path="res://assets/audio/game_over.mp3" id="3_vib8v"]
+[ext_resource type="Texture2D" uid="uid://c3mw03wt57jco" path="res://assets/sprites/burnout_spritesheet.png" id="4_n31jw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vv30"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(0, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2cys"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(525, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttt1k"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(1050, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_000mo"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(1575, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mkgix"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(2100, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njpuf"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(2625, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxkqb"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(3675, 0, 525, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wel1m"]
+atlas = ExtResource("4_n31jw")
+region = Rect2(3150, 0, 525, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qn2qc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vv30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2cys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttt1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_000mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mkgix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njpuf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxkqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wel1m")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource("1_eo1bb")
@@ -37,3 +102,9 @@ vertical_alignment = 1
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vib8v")
 autoplay = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1369, 321)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_qn2qc")
+autoplay = "default"
