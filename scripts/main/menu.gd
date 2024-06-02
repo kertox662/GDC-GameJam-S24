@@ -14,8 +14,12 @@ func _ready():
 	quit_tween.tween_callback(make_credit_button_visible)
 
 func _on_play_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main/game_canvas.tscn")
-
+	if GlobalStore.seen_tutorial:
+		GlobalStore.seen_tutorial = true
+		get_tree().change_scene_to_file("res://scenes/main/game_canvas.tscn")
+	else:
+		get_tree().change_scene_to_file("res://scenes/main/tutorial.tscn")
+	
 func _on_quit_button_pressed():
 	get_tree().quit()
 	
