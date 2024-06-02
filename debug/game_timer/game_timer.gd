@@ -12,10 +12,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if(game_active):
+		
 		if num_of_incompleted_tasks > 0:
-			game_timer += delta * (num_of_incompleted_tasks - 1) * 0.5 
+			game_timer += delta * (num_of_incompleted_tasks)  
 		else:
-			game_timer -= delta * 3
+			game_timer -= delta * 4
 		
 		if game_timer < 0:
 			game_timer = 0
